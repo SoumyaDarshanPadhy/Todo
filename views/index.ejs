@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title> <%= title %></title>
+</head>
+<body>
+    
+
+    <div class="box" id="heading">
+        <h1><%= day %></h1>
+    </div>
+
+    <div class="box">
+        <div id="tasks">
+            <%    for (let i=newItem.length-1;i>=0;i--){ %>
+                <div class="item">
+                    <input type="checkbox">
+                    <p> <%= newItem [i] %></p>
+                </div>
+            <%    } %>
+        </div>
+
+        <form action="/" method="post">
+            <input type="text" name="task" autocomplete="off" placeholder="Add a new Task" required>
+            <button type="submit">+</button>
+        </form>
+
+    </div>
+
+</body>
+</html>
