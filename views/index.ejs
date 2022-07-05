@@ -16,20 +16,25 @@
 
     <div class="box">
         <div id="tasks">
-            <%    for (let i=newItem.length-1;i>=0;i--){ %>
-                <div class="item">
-                    <input type="checkbox">
-                    <p> <%= newItem [i] %></p>
-                </div>
-            <%    } %>
+
+            <% newItem.forEach(tasks => { %>
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <input type="checkbox" name="deleteItem" value=<%= tasks._id %> onchange="this.form.submit()">
+                        <p> <%= tasks.task %></p>
+                    </div>
+                </form>
+            <% }) %>
+
         </div>
 
-        <form action="/" method="post">
-            <input type="text" name="task" autocomplete="off" placeholder="Add a new Task" required>
+        <form class="addItem" action="/" method="post">
+            <input type="text" autofocus name="task" autocomplete="off" placeholder="Add a new Task" required>
             <button type="submit">+</button>
         </form>
 
     </div>
+    
 
 </body>
 </html>
